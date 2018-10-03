@@ -1,0 +1,41 @@
+#tumblrDemoApp {
+  display: flex;
+  flex-direction: column;
+}
+
+#formContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+#postsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 50%;
+}
+
+.postContainer {
+  width: 400px;
+  height: 50px;
+}
+
+.textContainer {
+  /*does this do what I want?*/
+  overflow: hidden;
+  /*white-space: nowrap;*/
+}
+
+#searchForm {
+
+}
+
+.blogSummaryBox {
+  width: 100;
+  height: 100;
+}
+
+.summaryText {
+  color: black;
+}

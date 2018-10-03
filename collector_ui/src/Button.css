@@ -1,0 +1,24 @@
+.form-button {
+  padding: 4px 40px 4px 40px;
+}
+
+.blog-tile-button-add, .blog-tile-button-remove {
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.blog-tile-button-add {
+  background-color: green;
+}
+
+.blog-tile-button-remove {
+  background-color: red;
+}
+
+.form-button, .blog-tile-button-add, .blog-tile-button-remove {
+  border: solid;
+  border-width: 1px;
+  border-radius: 5px;
+}
