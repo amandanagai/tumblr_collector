@@ -1,41 +1,86 @@
-#tumblrDemoApp {
-  display: flex;
-  flex-direction: column;
-}
-
-#formContainer {
+#tumblr-demo-app {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
 }
 
-#postsContainer {
+#left-container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   width: 50%;
 }
 
-.postContainer {
-  width: 400px;
-  height: 50px;
+#form-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
 }
 
-.textContainer {
-  /*does this do what I want?*/
-  overflow: hidden;
-  /*white-space: nowrap;*/
-}
-
-#searchForm {
+#search-form {
 
 }
 
-.blogSummaryBox {
-  width: 100;
-  height: 100;
+#search-field-container {
+  display: flex;
+  flex-direction: row;
 }
 
-.summaryText {
+.search-field {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 20px 20px 20px;
+}
+
+#search-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+#posts-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.post-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 80%;
+  height: 200px;
+  margin: 10px 10px 10px 10px;
   color: black;
+  border: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  padding: 30px 20px 30px 20px;
+}
+
+.post-content {
+  width: 75%;
+  height: 80%;
+}
+
+.post-summary-text {
+  overflow-wrap: break-word;
+}
+
+.post-image {
+}
+
+.blog-button-container {
+  width: 25%;
+}
+
+#right-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+#favorites-container {
+  display: flex;
+  flex-direction: column;
 }

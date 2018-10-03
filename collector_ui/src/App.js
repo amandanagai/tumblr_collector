@@ -24,16 +24,20 @@ class App extends Component {
   handleClick(e) {
     e.preventDefault()
 
+    let searchingPosts = this.state.blogName ? true : false
+    let noSpacesBlogName = this.state.blogName.replace(/ /g, "")
+
     axios
       .get(`${server_path}/`, {
         params: {
-          blog_name: this.state.blogName
+          blog_name: noSpacesBlogName,
+          tag: this.state.tag
         }
       })
       .then(res => {
         console.log('posts', res)
         this.setState({
-          posts: res.data.posts
+          posts: searchingPosts ? res.data.posts : res.data
         })
       })
       .catch(error => {
@@ -49,33 +53,46 @@ class App extends Component {
   
   render() {
     let { posts } = this.state
-    let postsList = posts.map((post, i) => (
-      <div class="postContainer">
-        <div class="textContainer">
-          <a href={post.post_url}>
-            <div class="blogSummaryBox" >
-            <p class="summaryText" key={i}>{post.body.replace(/<\/?p>/g, '')}</p>
+    let postsList = 
+      posts ? 
+        posts.map((post, i) => (
+          <div className="post-container" key={i}>
+            <a className="post-content" href={post.post_url}>
+              <div className="post-summary-text">{post.summary}</div>
+              <img className="post-image" src={post.image_permalink} alt="" />
+            </a>
+            <div className="blog-button-container">
+              <BlogTileButton buttonName="add" />
             </div>
-          </a>
-        </div>
-        <div>
-          <BlogTileButton buttonName="add" />
-        </div>
-      </div>
-    ))
+          </div>
+        ))
+      :
+        ""
 
     return (
-      <div id="tumblrDemoApp">
-        <div id="formContainer" >
-          <form id="searchForm" onSubmit={this.handleClick}>
-            <SearchField title="Blog name:" name="blogName" blogName={this.state.blogName} handleChange={this.handleChange} />
-            <SearchField title="Tag:" name="tag" tag={this.state.tag} handleChange={this.handleChange} />
-            <FormButton buttonName="Search" />
-          </form>
-        </div>
+      <div id="tumblr-demo-app">
+        <div id="left-container" >
+          <div id="form-container" >
+            <form id="search-form" onSubmit={this.handleClick}>
+              <div id="search-field-container">
+                <SearchField title="Blog name:" name="blogName" blogName={this.state.blogName} handleChange={this.handleChange} />
+                <SearchField title="Tag:" name="tag" tag={this.state.tag} handleChange={this.handleChange} />
+              </div>
+              <div id="search-button-container">
+                <FormButton buttonName="Search" />
+              </div>
+            </form>
+          </div>
 
-        <div id="postsContainer">
-          {postsList}
+          <div id="posts-container">
+            {postsList}
+          </div>
+        </div>
+      
+        <div id="right-container" >
+          <div id="favorites-container">
+            <h2>Favorites:</h2>
+          </div>
         </div>
       </div>
     )

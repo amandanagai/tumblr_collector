@@ -7,6 +7,7 @@
   text-decoration: none;
   font-weight: bold;
   text-transform: capitalize;
+  color: black;
 }
 
 .blog-tile-button-add {
@@ -21,4 +22,5 @@
   border: solid;
   border-width: 1px;
   border-radius: 5px;
+  margin: 10px 20px 10px 20px;
 }
