@@ -13,6 +13,7 @@ class App extends Component {
 
     this.state = {
       posts: [],
+      favPosts: [],
       blogName: '',
       tag: ''
     }
@@ -50,9 +51,33 @@ class App extends Component {
       [e.target.name]: e.target.value
     })
   }
+
+  handleAdd(i, e) {
+    e.preventDefault()
+
+    let { posts, favPosts } = this.state 
+    let newPosts = [...posts.slice(0, i), ...posts.slice(i + 1)]
+    let newFavPosts = [...favPosts, posts[i]]
+    this.setState({
+      posts: newPosts,
+      favPosts: newFavPosts
+    })
+  }
+
+  handleRemove(i, e) {
+    e.preventDefault()
+
+    let { posts, favPosts } = this.state 
+    let newFavPosts = [...favPosts.slice(0, i), ...favPosts.slice(i + 1)]
+    let newPosts = [...posts, favPosts[i]]
+    this.setState({
+      posts: newPosts,
+      favPosts: newFavPosts
+    })
+  }
   
   render() {
-    let { posts } = this.state
+    let { posts, favPosts } = this.state
     let postsList = 
       posts ? 
         posts.map((post, i) => (
@@ -62,12 +87,28 @@ class App extends Component {
               <img className="post-image" src={post.image_permalink} alt="" />
             </a>
             <div className="blog-button-container">
-              <BlogTileButton buttonName="add" />
+              <BlogTileButton buttonName="add" handleAdd={this.handleAdd.bind(this, i)} />
             </div>
           </div>
         ))
       :
         ""
+
+    let favsList = 
+      favPosts ? 
+        favPosts.map((post, i) => (
+          <div className="post-container" key={i}>
+            <a className="post-content" href={post.post_url}>
+              <div className="post-summary-text">{post.summary}</div>
+              <img className="post-image" src={post.image_permalink} alt="" />
+            </a>
+            <div className="blog-button-container">
+              <BlogTileButton buttonName="remove" handleRemove={this.handleRemove.bind(this, i)} />
+            </div>
+          </div>
+        ))
+      :
+        ""    
 
     return (
       <div id="tumblr-demo-app">
@@ -86,12 +127,16 @@ class App extends Component {
 
           <div id="posts-container">
             {postsList}
-          </div>
+          </div>          
         </div>
       
         <div id="right-container" >
           <div id="favorites-container">
             <h2>Favorites:</h2>
+          </div>
+
+          <div id="posts-container">
+            {favsList}
           </div>
         </div>
       </div>
