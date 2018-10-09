@@ -1,7 +1,8 @@
 class TumblrRequestController < ApplicationController
 
   def index
-    client = Tumblr::Client.new :consumer_key => 'wqc6FQvXj6AhhegP3uR0ABnBBseCTF6NnnUe4nhcz24XuGfwE7'
+    tumblr_api_key = Rails.application.credentials[Rails.env.to_sym][:tumblr_api_key]
+    client = Tumblr::Client.new :consumer_key => tumblr_api_key
 
     unless params[:blog_name].empty?
       @blog_post = params.require(:blog_name)
