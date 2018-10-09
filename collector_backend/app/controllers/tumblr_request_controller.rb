@@ -13,12 +13,13 @@ class TumblrRequestController < ApplicationController
     end
 
     if @blog_post && @tag
-      p '**************************************', "we made it! both tagged and blog nammed"
+      p '**************************************', "we made it! both tagged and blog named"
       @posts_list = client.posts("#{@blog_post}.tumblr.com", { :tag => @tag })
     elsif @blog_post
+      p '**************************************', "blog name results"
       @posts_list = client.posts("#{@blog_post}.tumblr.com")
     elsif @tag
-      p '**************************************', "not sure yet"
+      p '**************************************', "tagged results"
       @posts_list = client.tagged(@tag)
     end
 
