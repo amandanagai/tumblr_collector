@@ -31,6 +31,11 @@
   margin: 20px 20px 20px 20px;
 }
 
+#no-result {
+  font-style: italic;
+  margin: 20px 20px 20px 20px; 
+}
+
 #search-button-container {
   display: flex;
   flex-direction: row;

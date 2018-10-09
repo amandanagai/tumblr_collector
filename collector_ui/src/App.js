@@ -15,7 +15,8 @@ class App extends Component {
       posts: [],
       favPosts: [],
       blogName: '',
-      tag: ''
+      tag: '',
+      noResults: ''
     }
 
     this.handleClick = this.handleClick.bind(this)
@@ -38,7 +39,8 @@ class App extends Component {
       .then(res => {
         console.log('posts', res)
         this.setState({
-          posts: searchingPosts ? res.data.posts : res.data
+          posts: searchingPosts ? res.data.posts : res.data,
+          noResults: 'no results'
         })
       })
       .catch(error => {
@@ -77,9 +79,9 @@ class App extends Component {
   }
   
   render() {
-    let { posts, favPosts } = this.state
+    let { posts, favPosts, noResults } = this.state
     let postsList = 
-      posts ? 
+      posts.length > 0 ? 
         posts.map((post, i) => (
           <div className="post-container" key={i}>
             <a className="post-content" href={post.post_url}>
@@ -92,7 +94,7 @@ class App extends Component {
           </div>
         ))
       :
-        ""
+        <div id="no-result">{noResults}</div>
 
     let favsList = 
       favPosts ? 
