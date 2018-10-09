@@ -1,5 +1,6 @@
 import React from 'react'
 import { BlogTileButton } from './Button'
+import './PostTile.css'
 
 const PostTile = ({ post, i, buttonName, handleAdd, handleRemove }) => (
   <div className="post-container" key={i}>
