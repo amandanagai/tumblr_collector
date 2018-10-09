@@ -3,6 +3,7 @@ import axios from 'axios'
 import logo from './logo.svg';
 import { FormButton, BlogTileButton } from './Button'
 import SearchField from './SearchField'
+import PostTile from './PostTile'
 import './App.css'
 
 const server_path = 'http://localhost:3001'
@@ -18,7 +19,6 @@ class App extends Component {
       tag: '',
       noResults: ''
     }
-
     this.handleClick = this.handleClick.bind(this)
     this.handleChange = this.handleChange.bind(this)
   }
@@ -37,7 +37,7 @@ class App extends Component {
         }
       })
       .then(res => {
-        console.log('posts', res)
+        console.log('res', res)
         this.setState({
           posts: searchingPosts ? res.data.posts : res.data,
           noResults: 'no results'
@@ -83,15 +83,7 @@ class App extends Component {
     let postsList = 
       posts.length > 0 ? 
         posts.map((post, i) => (
-          <div className="post-container" key={i}>
-            <a className="post-content" href={post.post_url}>
-              <div className="post-summary-text">{post.summary}</div>
-              <img className="post-image" src={post.image_permalink} alt="" />
-            </a>
-            <div className="blog-button-container">
-              <BlogTileButton buttonName="add" handleAdd={this.handleAdd.bind(this, i)} />
-            </div>
-          </div>
+           <PostTile post={post} i={i} buttonName="add" handleAdd={this.handleAdd.bind(this, i)} />
         ))
       :
         <div id="no-result">{noResults}</div>
@@ -99,15 +91,7 @@ class App extends Component {
     let favsList = 
       favPosts ? 
         favPosts.map((post, i) => (
-          <div className="post-container" key={i}>
-            <a className="post-content" href={post.post_url}>
-              <div className="post-summary-text">{post.summary}</div>
-              <img className="post-image" src={post.image_permalink} alt="" />
-            </a>
-            <div className="blog-button-container">
-              <BlogTileButton buttonName="remove" handleRemove={this.handleRemove.bind(this, i)} />
-            </div>
-          </div>
+          <PostTile post={post} i={i} buttonName="remove" handleRemove={this.handleRemove.bind(this, i)} />
         ))
       :
         ""    
