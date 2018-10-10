@@ -1,6 +1,8 @@
 # tumblr_collector
 
 
+This is a simple Rails/React webapp for searching tumblr by blogname and/or tag. You can save favorites (for demo only; does not persist). Uses tumblr API. **NOTE: Refactoring, improvements in progress.
+
 Make sure you have installed locally:
 
 Rails 5.2.*
