@@ -26,7 +26,6 @@ class App extends Component {
   handleClick(e) {
     e.preventDefault()
 
-    let searchingPosts = this.state.blogName ? true : false
     let noSpacesBlogName = this.state.blogName.replace(/ /g, "")
 
     axios
@@ -39,7 +38,7 @@ class App extends Component {
       .then(res => {
         console.log('res', res)
         this.setState({
-          posts: searchingPosts ? res.data.posts : res.data,
+          posts: res.data,
           noResults: 'no results'
         })
       })
