@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import logo from './logo.svg';
-import { FormButton, BlogTileButton } from './Button'
+import { FormButton } from './Button'
 import SearchField from './SearchField'
 import PostTile from './PostTile'
 import './App.css'
@@ -82,7 +81,7 @@ class App extends Component {
     let postsList = 
       posts.length > 0 ? 
         posts.map((post, i) => (
-           <PostTile post={post} i={i} buttonName="add" handleAdd={this.handleAdd.bind(this, i)} />
+           <PostTile post={post} key={i} buttonName="add" handleAdd={this.handleAdd.bind(this, i)} />
         ))
       :
         <div id="no-result">{noResults}</div>
@@ -90,7 +89,7 @@ class App extends Component {
     let favsList = 
       favPosts ? 
         favPosts.map((post, i) => (
-          <PostTile post={post} i={i} buttonName="remove" handleRemove={this.handleRemove.bind(this, i)} />
+          <PostTile post={post} key={i} buttonName="remove" handleRemove={this.handleRemove.bind(this, i)} />
         ))
       :
         ""    
