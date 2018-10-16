@@ -35,7 +35,6 @@ class App extends Component {
         }
       })
       .then(res => {
-        console.log('res', res)
         this.setState({
           posts: res.data,
           noResults: 'no results'
