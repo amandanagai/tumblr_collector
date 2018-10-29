@@ -24,7 +24,6 @@
 
 .post-summary-text {
   overflow-wrap: break-word;
-  /*white-space: nowrap;*/
   overflow: hidden;
   max-height: 32%;
 }

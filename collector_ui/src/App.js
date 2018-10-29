@@ -49,7 +49,7 @@ class App extends Component {
     })
   }
 
-  handleAdd(i, e) {
+  handleAdd = (i, e) => {
     e.preventDefault()
 
     let { posts, favPosts } = this.state 
@@ -61,7 +61,7 @@ class App extends Component {
     })
   }
 
-  handleRemove(i, e) {
+  handleRemove = (i, e) => {
     e.preventDefault()
 
     let { posts, favPosts } = this.state 

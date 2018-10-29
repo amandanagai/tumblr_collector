@@ -1,11 +1,10 @@
 # tumblr_collector
 
-**NOTE: Refactoring, improvements in progress. If I had more time, I would:
+**NOTE: If I had more time, I would:
 - add error handling  
 - add tests   
-- fix css styling and display of tumblr post information on the "blog tiles"
-- refactor app.js to be more concise (e.g. move functions into helper files, etc)
-- fix 1 remaining react error
+- design the display of tumblr post information in "blog tiles"
+- fix 1 remaining react error   
 
 Description: This is a simple Rails/React webapp for searching tumblr by blogname and/or tag. You can save favorites (for demo only; does not persist). Uses tumblr API.  
     
