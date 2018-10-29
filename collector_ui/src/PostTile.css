@@ -10,24 +10,32 @@
   border-width: 1px;
   border-radius: 5px;
   padding: 10% 10% 10% 10%;
+  background-color: #fef6ed;
 }
 
 .post-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   width: 75%;
-  height: 80%;
+  height: 100%;
   padding-left: 10%;
 }
 
 .post-summary-text {
   overflow-wrap: break-word;
+  /*white-space: nowrap;*/
+  overflow: hidden;
+  max-height: 32%;
 }
 
 .post-image {
-  width: 75%;
-  height: 75%;
+  max-width: 75%;
+  max-height: 60%;
 }
 
 .blog-button-container {
   width: 25%;
   padding-right: 10%;
+  padding-top: 10%;
 }

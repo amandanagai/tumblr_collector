@@ -18,11 +18,9 @@ class App extends Component {
       tag: '',
       noResults: ''
     }
-    this.handleClick = this.handleClick.bind(this)
-    this.handleChange = this.handleChange.bind(this)
   }
 
-  handleClick(e) {
+  handleClick = e => {
     e.preventDefault()
 
     let noSpacesBlogName = this.state.blogName.replace(/ /g, "")
@@ -45,7 +43,7 @@ class App extends Component {
       })
   }
 
-  handleChange(e) {
+  handleChange = e => {
     this.setState({
       [e.target.name]: e.target.value
     })
@@ -97,7 +95,7 @@ class App extends Component {
       <div id="tumblr-demo-app">
         <div id="left-container" >
           <div id="form-container" >
-            <form id="search-form" onSubmit={this.handleClick}>
+            <form onSubmit={this.handleClick}>
               <div id="search-field-container">
                 <SearchField title="Blog name:" name="blogName" blogName={this.state.blogName} handleChange={this.handleChange} />
                 <SearchField title="Tag:" name="tag" tag={this.state.tag} handleChange={this.handleChange} />

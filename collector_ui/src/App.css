@@ -7,6 +7,7 @@
   display: flex;
   flex-direction: column;
   width: 50%;
+  background-color: #fbf8fc;
 }
 
 #form-container {
@@ -14,22 +15,12 @@
   flex-direction: row;
   justify-content: flex-start;
   width: 100%;
+  margin-left: 10%;
 }
 
 #search-field-container {
   display: flex;
   flex-direction: row;
-}
-
-.search-field {
-  display: flex;
-  flex-direction: column;
-  margin: 20px 20px 20px 20px;
-}
-
-#no-result {
-  font-style: italic;
-  margin: 20px 20px 20px 20px; 
 }
 
 #search-button-container {
@@ -45,10 +36,17 @@
   width: 70%;
 }
 
+#no-result {
+  font-style: italic;
+  margin: 20px 20px 20px 20px; 
+  padding-left: 15%;
+}
+
 #right-container {
   display: flex;
   flex-direction: column;
   width: 50%;
+  background-color: #e9d3f0;
 }
 
 #favorites-container {
