@@ -1,6 +1,7 @@
 # tumblr_collector
 
 **NOTE: If I had more time, I would:
+- add UUIDs to postsList and favsList items (vs using indexes)
 - add error handling  
 - add tests   
 - design the display of tumblr post information in "blog tiles"
