@@ -1,5 +1,5 @@
 import React from 'react'
-import { BlogTileButton } from './Button'
+import { BlogTileButton } from '../atoms/Button'
 import './PostTile.css'
 
 const PostTile = ({ post, buttonName, handleAdd, handleRemove }) => (

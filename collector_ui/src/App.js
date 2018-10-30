@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { FormButton } from './Button'
-import SearchField from './SearchField'
-import PostTile from './PostTile'
+import { FormButton } from './atoms/Button'
+import SearchField from './atoms/SearchField'
+import PostTile from './molecules/PostTile'
 import './App.css'
 
 const server_path = 'http://localhost:3001'
