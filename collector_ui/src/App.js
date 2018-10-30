@@ -20,7 +20,7 @@ class App extends Component {
     }
   }
 
-  handleClick = e => {
+  handleSubmit = e => {
     e.preventDefault()
 
     let noSpacesBlogName = this.state.blogName.replace(/ /g, "")
@@ -81,7 +81,7 @@ class App extends Component {
            <PostTile post={post} key={i} buttonName="add" handleAdd={this.handleAdd.bind(this, i)} />
         ))
       :
-        <div id="no-result">{noResults}</div>
+        <div class="no-result">{noResults}</div>
 
     let favsList = 
       favPosts ? 
@@ -92,31 +92,31 @@ class App extends Component {
         ""    
 
     return (
-      <div id="tumblr-demo-app">
-        <div id="left-container" >
-          <div id="form-container" >
-            <form onSubmit={this.handleClick}>
-              <div id="search-field-container">
+      <div class="tumblr-demo-app">
+        <div class="left-container" >
+          <div class="form-container" >
+            <form onSubmit={this.handleSubmit}>
+              <div class="search-field-container">
                 <SearchField title="Blog name:" name="blogName" blogName={this.state.blogName} handleChange={this.handleChange} />
                 <SearchField title="Tag:" name="tag" tag={this.state.tag} handleChange={this.handleChange} />
               </div>
-              <div id="search-button-container">
+              <div class="search-button-container">
                 <FormButton buttonName="Search" />
               </div>
             </form>
           </div>
 
-          <div id="posts-container">
+          <div class="posts-container">
             {postsList}
           </div>          
         </div>
       
-        <div id="right-container" >
-          <div id="favorites-container">
+        <div class="right-container" >
+          <div class="favorites-container">
             <h2>Favorites:</h2>
           </div>
 
-          <div id="posts-container">
+          <div class="posts-container">
             {favsList}
           </div>
         </div>

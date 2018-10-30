@@ -1,55 +1,52 @@
-#tumblr-demo-app {
+.tumblr-demo-app {
   display: flex;
   flex-direction: row;
 }
 
-#left-container {
+.left-container {
   display: flex;
   flex-direction: column;
   width: 50%;
   background-color: #fbf8fc;
 }
-
-#form-container {
+.form-container {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   width: 100%;
   margin-left: 10%;
 }
-
-#search-field-container {
+.search-field-container {
   display: flex;
   flex-direction: row;
 }
-
-#search-button-container {
+.search-button-container {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
 }
 
-#posts-container {
+.posts-container {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   width: 70%;
 }
 
-#no-result {
+.no-result {
   font-style: italic;
   margin: 20px 20px 20px 20px; 
   padding-left: 15%;
 }
 
-#right-container {
+.right-container {
   display: flex;
   flex-direction: column;
   width: 50%;
   background-color: #e9d3f0;
 }
 
-#favorites-container {
+.favorites-container {
   display: flex;
   flex-direction: column;
   width: 90%;
